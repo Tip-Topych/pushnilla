@@ -11,7 +11,7 @@ bot = Bot(token=API_TOKEN)
 
 dp = Dispatcher(bot)
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 
 if not config.BOT_TOKEN:
     exit("No token provided")
