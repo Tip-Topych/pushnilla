@@ -22,9 +22,9 @@ async def noon_print():
 
 
 async def scheduler():
-    aioschedule.every(1).minutes.do(noon_print)
+    aioschedule.every(40).minutes.do(noon_print)
     # aioschedule.every().hour.do(job)
-    aioschedule.every().day.at("21:40").do(noon_print)
+    aioschedule.every().day.at("10:08").do(noon_print)
     # aioschedule.every().monday.do(job)
     # aioschedule.every().wednesday.at("13:15").do(job)
     # aioschedule.every().minute.at(":17").do(job)
