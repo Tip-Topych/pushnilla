@@ -2,9 +2,9 @@ from loguru import logger
 from aiogram.types import ParseMode
 from os import environ
 
-API_TOKEN: str = environ.get('API_TOKEN')    # 'AAABBBCCC:12345'
-ADMIN_ID: list = list(map(int, environ.get('ADMIN_ID').split()))    # [123, 456]
-BAN_LIST: list = list(map(int, environ.get('BAN_LIST').split()))    # [321, 654]
+API_TOKEN: str = environ.get('5179851909:AAGD0QhgKj7G3-acjXMD0bTU8jzuukyE-dI')    # 'AAABBBCCC:12345'
+ADMIN_ID: str = environ.get('5179851909')  # [123, 456]
+#BAN_LIST: list = list(map(int, environ.get('BAN_LIST').split()))    # [321, 654]
 
 # HIDE_SOURCE = True
 DB_PATH = '_bot.db'
