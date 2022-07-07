@@ -5,11 +5,11 @@ from aiogram import Bot, Dispatcher, executor
 import asyncio
 import aioschedule
 import config
-from os import environ
+import os
 
-API_TOKEN: str = environ.get('BOT_TOKEN')  # не забудь добавить переменную среды в .env
+API_TOKEN: str = os.getenv('BOT_TOKEN')  # не забудь добавить переменную среды в .env
 
-bot = Bot(token=config.BOT_TOKEN, parse_mode="HTML")
+bot = Bot(token=API_TOKEN)
 
 dp = Dispatcher(bot)
 
