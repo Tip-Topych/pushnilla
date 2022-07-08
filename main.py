@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 
 async def noon_print():
-    await bot.send_message(CHAT_ID, 'Go to DAILY, motherfucker')
+    await bot.send_message(chat_id=CHAT_ID, text='Go to DAILY, motherfucker')
 
 
 async def scheduler():
