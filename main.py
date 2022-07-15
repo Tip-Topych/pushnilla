@@ -13,7 +13,7 @@ bot = Bot(token=API_TOKEN)
 
 dp = Dispatcher(bot)
 
-photo = InputFile("files/task_image.jpg")
+photo = InputFile("files/task_image.jpg", 'rb')
 
 logging.basicConfig(level=logging.DEBUG)
 
