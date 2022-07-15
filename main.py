@@ -31,7 +31,7 @@ async def task_close_image():
 
 
 async def scheduler():
-    aioschedule.every(4).minutes.do(noon_print)
+    aioschedule.every(5).minutes.do(noon_print)
     aioschedule.every(3).minutes.do(task_close_image)
     # aioschedule.every().hour.do(job)
     aioschedule.every().day.at("12:15").do(noon_print)
