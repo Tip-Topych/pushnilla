@@ -4,12 +4,16 @@ import asyncio
 import aioschedule
 import os
 
+from aiogram.types import InputFile
+
 API_TOKEN: str = os.getenv('BOT_TOKEN')  # не забудь добавить переменную среды в .env
 CHAT_ID: str = os.getenv('CHAT')  # не забудь добавить переменную среды в .env
 
 bot = Bot(token=API_TOKEN)
 
 dp = Dispatcher(bot)
+
+photo = InputFile("files/task_image.jpg")
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -22,9 +26,13 @@ async def task_close():
     await bot.send_message(chat_id=CHAT_ID, text='А ты закрыл Задачу?')
 
 
+async def task_close_image():
+    await bot.send_photo(chat_id=CHAT_ID, photo=photo)
+
+
 async def scheduler():
     aioschedule.every(4).minutes.do(noon_print)
-    aioschedule.every(3).minutes.do(task_close)
+    aioschedule.every(3).minutes.do(task_close_image)
     # aioschedule.every().hour.do(job)
     aioschedule.every().day.at("12:15").do(noon_print)
     # aioschedule.every().monday.do(job)
