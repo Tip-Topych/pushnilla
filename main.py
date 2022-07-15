@@ -15,15 +15,29 @@ logging.basicConfig(level=logging.DEBUG)
 
 
 async def noon_print():
-    await bot.send_message(chat_id=CHAT_ID, text='Go to DAILY, motherfucker')
+    await bot.send_message(chat_id=CHAT_ID, text='Пора на дейли')
+
+
+async def task_close():
+    await bot.send_message(chat_id=CHAT_ID, text='А ты закрыл Задачу?')
 
 
 async def scheduler():
-    aioschedule.every(40).minutes.do(noon_print)
+    aioschedule.every(2).minutes.do(noon_print)
+    aioschedule.every(2).minutes.do(task_close)
     # aioschedule.every().hour.do(job)
-    aioschedule.every().day.at("08:45").do(noon_print)
+    aioschedule.every().day.at("12:15").do(noon_print)
     # aioschedule.every().monday.do(job)
-    aioschedule.every().friday.at("08:50").do(noon_print)
+    aioschedule.every().monday.at("06:55").do(noon_print)
+    aioschedule.every().monday.at("15:00").do(task_close)
+    aioschedule.every().tuesday.at("06:55").do(noon_print)
+    aioschedule.every().tuesday.at("15:00").do(task_close)
+    aioschedule.every().wednesday.at("06:55").do(noon_print)
+    aioschedule.every().wednesday.at("15:00").do(task_close)
+    aioschedule.every().thursday.at("06:55").do(noon_print)
+    aioschedule.every().thursday.at("15:00").do(task_close)
+    aioschedule.every().friday.at("06:55").do(noon_print)
+    aioschedule.every().friday.at("15:00").do(task_close)
     # aioschedule.every().minute.at(":17").do(job)
     while True:
         await aioschedule.run_pending()
