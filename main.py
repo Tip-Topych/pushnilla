@@ -4,7 +4,6 @@ import asyncio
 import aioschedule
 import os
 
-from aiogram.types import InputFile
 
 API_TOKEN: str = os.getenv('BOT_TOKEN')  # не забудь добавить переменную среды в .env
 CHAT_ID: str = os.getenv('CHAT')  # не забудь добавить переменную среды в .env
@@ -13,7 +12,6 @@ bot = Bot(token=API_TOKEN)
 
 dp = Dispatcher(bot)
 
-Photo = open("files/task_image.jpg", 'rb')
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -27,8 +25,9 @@ async def task_close():
 
 
 async def task_close_image():
-    await bot.send_photo(chat_id=CHAT_ID, photo=Photo)
-    Photo.close()
+    photo = open("files/task_image.jpg", 'rb')
+    await bot.send_photo(chat_id=CHAT_ID, photo=photo)
+    photo.close()
 
 
 async def scheduler():
