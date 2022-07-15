@@ -13,7 +13,7 @@ bot = Bot(token=API_TOKEN)
 
 dp = Dispatcher(bot)
 
-photo = InputFile("files/task_image.jpg", 'rb')
+Photo = open("files/task_image.jpg", 'rb')
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -27,7 +27,8 @@ async def task_close():
 
 
 async def task_close_image():
-    await bot.send_photo(chat_id=CHAT_ID, photo=photo)
+    await bot.send_photo(chat_id=CHAT_ID, photo=Photo)
+    Photo.close()
 
 
 async def scheduler():
